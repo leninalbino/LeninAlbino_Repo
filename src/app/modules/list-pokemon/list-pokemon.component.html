@@ -1,0 +1,24 @@
+ <!-- <mat-grid-list cols="2" rowHeight="2:1" *ngFor="let pokemon of pokemons">
+  <mat-card class="example-card" >
+    <img mat-card-image [src]="pokemon.image" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <mat-card-title>{{pokemon.id}}</mat-card-title>
+      <mat-card-subtitle>{{pokemon.name}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</mat-grid-list> -->
+<form [formGroup]="form">
+<h1>Listado de Pokemon</h1>
+<input formControlName="search" (keyup)="FindPokemon()" matInput placeholder="search">
+<div *ngFor="let pokemon of new_List_pokemons ">
+  <img  [src]="pokemon[0].image">
+  <h2>{{pokemon[0].id}}</h2>
+  <h2>{{pokemon[0].name}}</h2>
+</div>
+</form>
+<button>Atras</button>
+<button>Siguiente</button>
