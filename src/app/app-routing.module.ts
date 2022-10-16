@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-//   {
-//     path: '**',
-//     redirectTo: 'list_pokemon',
-//     pathMatch:'full'
-// }
+  {
+    path: 'pokemons',
+   // redirectTo: 'list_pokemon',
+    //pathMatch:'full'
+  }
 ];
 
 @NgModule({

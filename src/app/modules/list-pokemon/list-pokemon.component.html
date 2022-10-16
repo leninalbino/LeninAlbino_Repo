@@ -1,24 +1,139 @@
- <!-- <mat-grid-list cols="2" rowHeight="2:1" *ngFor="let pokemon of pokemons">
-  <mat-card class="example-card" >
-    <img mat-card-image [src]="pokemon.image" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <mat-card-title>{{pokemon.id}}</mat-card-title>
-      <mat-card-subtitle>{{pokemon.name}}</mat-card-subtitle>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-</mat-grid-list> -->
-<form [formGroup]="form">
-<h1>Listado de Pokemon</h1>
-<input formControlName="search" (keyup)="FindPokemon()" matInput placeholder="search">
-<div *ngFor="let pokemon of new_List_pokemons ">
-  <img  [src]="pokemon[0].image">
-  <h2>{{pokemon[0].id}}</h2>
-  <h2>{{pokemon[0].name}}</h2>
+<!-- <main>
+  <form [formGroup]="form">
+    <h1>Listado de Pokemon</h1>
+    <input formControlName="search" (keyup)="searchPokemon()" matInput placeholder="search">
+    <div class="container">
+
+      <section class="content">
+        <article *ngFor="let pokemon of last_list_pokemons | pagesPokemon:page" (click)="getOneById(pokemon[0].id)"  >
+          <img [src]="pokemon[0].image">
+          <h2 >{{pokemon[0].id}}</h2>
+          <h2>{{pokemon[0].name}}</h2>
+        </article>
+      </section>
+      <div class="descript">
+        <article class="detail" *ngIf="view">
+          <img height="200px" [src]="detailPokemon.sprites.front_default">
+          <h2> # {{detailPokemon.id}} </h2>
+          <h2>{{detailPokemon.name}}</h2>
+          <div>
+            <h3>Types:</h3>
+            <span *ngFor="let type of detailPokemon.types">
+              {{type.type.name}}
+            </span>
+            <h3>Peso</h3>
+            <p> {{detailPokemon.weight}} kg </p>
+            <span class="image">
+              <img class="img"  [src]="detailPokemon.sprites.front_default">
+            </span>
+            <span *ngIf="detailPokemon.sprites.front_female" class="image">
+              <img class="img" [src]="detailPokemon.sprites.front_female">
+            </span>
+            <div *ngIf="detailPokemon.sprites.front_shiny" class="image">
+              <img class="img" [src]="detailPokemon.sprites.front_shiny">
+            </div>
+            <div *ngIf="detailPokemon.sprites.front_shiny_female" class="image">
+              <img class="img" [src]="detailPokemon.sprites.front_shiny_female">
+            </div>
+              <div *ngIf="detailPokemon.sprites.back_default" class="image">
+              <img class="img" [src]="detailPokemon.sprites.back_default">
+            </div>
+              <div *ngIf="detailPokemon.sprites.back_female" class="image">
+              <img class="img" [src]="detailPokemon.sprites.back_female">
+            </div>
+              <div *ngIf="detailPokemon.sprites.back_shiny" class="image">
+              <img class="img" [src]="detailPokemon.sprites.back_shiny">
+            </div>
+              <div *ngIf="detailPokemon.sprites.back_shiny_female" class="image">
+              <img class="img" [src]="detailPokemon.sprites.back_shiny_female">
+            </div>
+
+            <br>
+            <h3>Movimientos</h3>
+            <span *ngFor="let move of detailPokemon.moves">
+              {{move.move.name}}
+            </span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </form>
+  <div class="buttons">
+    <button (click)=" prevPage()">Atras</button>
+    <button (click)=" nextPage()">Siguiente</button>
+  </div>
+
+</main> -->
+<main>
+  <section class="headers">
+    <h2>Listado de Pokemon</h2>
+    <input #txtSearch (keyup)="searchPokemon(txtSearch.value)" matInput placeholder="search">
+  </section>
+
+  <div class="container">
+    <div class="contents">
+
+      <section class="elements" *ngFor="let pokemon of last_list_pokemons | pagesPokemon:page" (click)="getOneById(pokemon[0].id)">
+        <figure class="main-image">
+          <img [src]="pokemon[0].image">
+        </figure>
+        <h2>{{pokemon[0].id}}</h2>
+        <p>{{pokemon[0].name}}</p>
+      </section>
+
+    </div>
+    <div class="details" *ngIf="view">
+
+     <section class="pokemon-detail">
+      <figure class="main-image">
+        <img [src]="detailPokemon.sprites.front_default">
+      </figure>
+      <h3 > # {{detailPokemon.id}} </h3>
+      <h3>{{detailPokemon.name}}</h3>
+        <h2>Types:</h2>
+        <span *ngFor="let type of detailPokemon.types">
+          {{type.type.name}}
+        </span>
+        <h2>Peso</h2>
+        <h2> {{detailPokemon.weight}} kg </h2>
+        <div class="image">
+          <img class="img"  [src]="detailPokemon.sprites.front_default">
+        </div>
+        <div class="image" *ngIf="detailPokemon.sprites.front_female" class="image">
+          <img class="img" [src]="detailPokemon.sprites.front_female">
+        </div>
+        <figure class="image" *ngIf="detailPokemon.sprites.front_shiny" class="image">
+          <img class="img" [src]="detailPokemon.sprites.front_shiny">
+        </figure>
+        <figure class="image" *ngIf="detailPokemon.sprites.front_shiny_female" class="image">
+          <img class="img" [src]="detailPokemon.sprites.front_shiny_female">
+        </figure>
+        <figure class="image" *ngIf="detailPokemon.sprites.back_default" class="image">
+          <img class="img" [src]="detailPokemon.sprites.back_default">
+        </figure>
+        <figure class="image" *ngIf="detailPokemon.sprites.back_female" class="image">
+          <img class="img" [src]="detailPokemon.sprites.back_female">
+        </figure>
+        <figure class="image" *ngIf="detailPokemon.sprites.back_shiny" class="image">
+          <img class="img" [src]="detailPokemon.sprites.back_shiny">
+        </figure>
+        <figure class="image" *ngIf="detailPokemon.sprites.back_shiny_female" class="image">
+          <img class="img" [src]="detailPokemon.sprites.back_shiny_female">
+        </figure>
+
+        <br>
+        <h2>Movimientos</h2>
+        <span *ngFor="let move of detailPokemon.moves">
+          {{move.move.name}}
+        </span>
+
+     </section>
+    </div>
+  </div>
+  <div class="buttons">
+    <button (click)=" prevPage()">Atras</button>
+    <button (click)=" nextPage()">Siguiente</button>
 </div>
-</form>
-<button>Atras</button>
-<button>Siguiente</button>
+</main>
+

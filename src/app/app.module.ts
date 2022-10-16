@@ -10,12 +10,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { PagesPokemonPipe } from './modules/pipes/pages-pokemon.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListPokemonComponent,
-    DetailsPokemonComponent
+    DetailsPokemonComponent,
+    PagesPokemonPipe
   ],
   imports: [
     BrowserModule,
