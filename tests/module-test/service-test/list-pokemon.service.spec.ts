@@ -20,11 +20,11 @@ describe('ListPokemonService', () => {
     expect(service).toBeTruthy();
   });
 
-  test('you must bring the pokemon', (done) => {
-    service.getPokemons().subscribe(listPokemon => {
+  test('must show pokemon', (done) => {
+    service.getPokemons().subscribe(Pokemon => {
       // console.log(listPokemon);
 
-      expect(listPokemon).toBe(listPokemon)!;
+      expect(Pokemon).toBe(Pokemon)!;
       done();
     })
 

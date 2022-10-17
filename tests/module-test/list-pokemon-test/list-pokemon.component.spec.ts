@@ -60,7 +60,7 @@ describe('ListPokemonComponent', () => {
       }
     ]
     //httpMock, es un ojo o un observador de http que esta en el servicio
-    console.log(dummyPokemons);
+    //console.log(dummyPokemons);
     const request = httpMock.expectOne('https://pokeapi.co/api/v2/pokemon/?limit=1500');
     expect(request.request.method).toBe('GET');// probamos que el tipo de respuesta sea Get
     request.flush(dummyPokemons)// para ver si ese request regreso de tipo dumyPokemon
