@@ -98,29 +98,32 @@
         <h2>Peso</h2>
         <h2> {{detailPokemon.weight}} kg </h2>
         <div class="image">
-          <img class="img"  [src]="detailPokemon.sprites.front_default">
+          <figure>
+            <img class="img"  [src]="detailPokemon.sprites.front_default">
+          </figure>
+          <figure *ngIf="detailPokemon.sprites.front_female" class="image">
+            <img class="img" [src]="detailPokemon.sprites.front_female">
+          </figure>
+          <figure *ngIf="detailPokemon.sprites.front_shiny" class="image">
+            <img class="img" [src]="detailPokemon.sprites.front_shiny">
+          </figure>
+          <figure *ngIf="detailPokemon.sprites.front_shiny_female" class="image">
+            <img class="img" [src]="detailPokemon.sprites.front_shiny_female">
+          </figure>
+          <figure *ngIf="detailPokemon.sprites.back_default" class="image">
+            <img class="img" [src]="detailPokemon.sprites.back_default">
+          </figure>
+          <figure *ngIf="detailPokemon.sprites.back_female" class="image">
+            <img class="img" [src]="detailPokemon.sprites.back_female">
+          </figure>
+          <figure *ngIf="detailPokemon.sprites.back_shiny" class="image">
+            <img class="img" [src]="detailPokemon.sprites.back_shiny">
+          </figure>
+          <figure *ngIf="detailPokemon.sprites.back_shiny_female" class="image">
+            <img class="img" [src]="detailPokemon.sprites.back_shiny_female">
+          </figure>
         </div>
-        <div class="image" *ngIf="detailPokemon.sprites.front_female" class="image">
-          <img class="img" [src]="detailPokemon.sprites.front_female">
-        </div>
-        <figure class="image" *ngIf="detailPokemon.sprites.front_shiny" class="image">
-          <img class="img" [src]="detailPokemon.sprites.front_shiny">
-        </figure>
-        <figure class="image" *ngIf="detailPokemon.sprites.front_shiny_female" class="image">
-          <img class="img" [src]="detailPokemon.sprites.front_shiny_female">
-        </figure>
-        <figure class="image" *ngIf="detailPokemon.sprites.back_default" class="image">
-          <img class="img" [src]="detailPokemon.sprites.back_default">
-        </figure>
-        <figure class="image" *ngIf="detailPokemon.sprites.back_female" class="image">
-          <img class="img" [src]="detailPokemon.sprites.back_female">
-        </figure>
-        <figure class="image" *ngIf="detailPokemon.sprites.back_shiny" class="image">
-          <img class="img" [src]="detailPokemon.sprites.back_shiny">
-        </figure>
-        <figure class="image" *ngIf="detailPokemon.sprites.back_shiny_female" class="image">
-          <img class="img" [src]="detailPokemon.sprites.back_shiny_female">
-        </figure>
+
 
         <br>
         <h2>Movimientos</h2>

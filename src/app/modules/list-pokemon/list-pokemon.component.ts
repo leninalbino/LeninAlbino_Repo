@@ -1,7 +1,6 @@
-import { PokemonService } from './../services/pokemon.service';
+import { PokemonService } from '../services/list-pokemon.service';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../models/pokemon';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-list-pokemon',
@@ -35,6 +34,8 @@ export class ListPokemonComponent implements OnInit {
   }
   getPokemon() {
     this._pokemonService.getPokemons().subscribe(pokedata => {
+      //Todo
+      console.log(pokedata);
       this.getImage(pokedata);
     })
   }
@@ -56,6 +57,7 @@ export class ListPokemonComponent implements OnInit {
 
       this.new_List_pokemons.push(this.pokemons);
       this.last_list_pokemons = this.new_List_pokemons;
+      // console.log(this.last_list_pokemons);
 
     })
     return this.new_List_pokemons;
@@ -86,12 +88,12 @@ export class ListPokemonComponent implements OnInit {
 
 
   nextPage() {
-    this.page += 5;
+    this.page += 8;
   }
 
   prevPage() {
     if ( this.page > 0 )
-      this.page -= 5;
+      this.page -= 8;
   }
   viewDetalle() {
 

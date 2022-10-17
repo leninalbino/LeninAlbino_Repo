@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListPokemonComponent must match the snapshot 1`] = `
+<div
+  id="root1"
+>
+  <main>
+    <section
+      class="headers"
+    >
+      <h2>
+        Listado de Pokemon
+      </h2>
+      <input
+        matinput=""
+        placeholder="search"
+      />
+    </section>
+    <div
+      class="container"
+    >
+      <div
+        class="contents"
+      >
+        
+      </div>
+      
+    </div>
+    <div
+      class="buttons"
+    >
+      <button>
+        Atras
+      </button>
+      <button>
+        Siguiente
+      </button>
+    </div>
+  </main>
+</div>
+`;
